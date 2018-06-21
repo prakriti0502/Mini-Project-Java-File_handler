@@ -1,6 +1,7 @@
 package project;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,15 +11,20 @@ public class ProjectFileHandler {
 	public static void FilesCheck(String path,ArrayList<File> a1) throws IOException{
 		File myfile = new File(path);
 		File[] f = myfile.listFiles();
+		try {
 		for(File file:f) {
 			if(file.isFile()) {
 				a1.add(file);
+				//System.out.println(file.getName());
 			}
 			else if(file.isDirectory())
 			{
 				FilesCheck(file.getAbsolutePath() , a1);
 			}
-		}
+		} 
+	} catch(Exception e) {
+		return;
+	}
 	}
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
@@ -43,9 +49,17 @@ public class ProjectFileHandler {
 		FileWriter w1 = new FileWriter(file1, true);
 		for(int i = 0 ; i < a.size() ; i++ )
 		{
-			w1.write("Name: " + a.get(i).getName() + " , " + a.get(i).getAbsolutePath());
+			w1.write("Name: " + a.get(i).getName() + " , " + a.get(i).getAbsolutePath() + "\n");
 		}
+		w1.flush();
 		w1.close();
+		/*System.out.println("File csv vali:");
+		FileReader ww = new FileReader(str2);
+		int c;
+		while((c = ww.read()) != -1) {
+			System.out.write((char) c );
+		}
+		ww.close();*/
 	}
 
 }
