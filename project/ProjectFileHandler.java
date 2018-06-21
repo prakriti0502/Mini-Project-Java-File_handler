@@ -11,12 +11,12 @@ public class ProjectFileHandler {
 		File myfile = new File(path);
 		File[] f = myfile.listFiles();
 		for(File file:f) {
-			if(file.isDirectory() == true) {
-				FilesCheck(file.getAbsolutePath() , a1);
-			}
-			else if(file.isFile())
-			{
+			if(file.isFile()) {
 				a1.add(file);
+			}
+			else if(file.isDirectory())
+			{
+				FilesCheck(file.getAbsolutePath() , a1);
 			}
 		}
 	}
