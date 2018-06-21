@@ -1,6 +1,7 @@
 package project;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +52,12 @@ public class ProjectFileHandler {
 		}
 		w1.flush();
 		w1.close();
+		FileReader fr = new FileReader(str2);
+		int c;
+		while((c = fr.read()) != -1) {
+			System.out.print((char) c);
+		}
+		fr.close();
 	}
 
 }
