@@ -1,7 +1,6 @@
 package project;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class ProjectFileHandler {
 		for(File file:f) {
 			if(file.isFile()) {
 				a1.add(file);
-				//System.out.println(file.getName());
 			}
 			else if(file.isDirectory())
 			{
@@ -53,13 +51,6 @@ public class ProjectFileHandler {
 		}
 		w1.flush();
 		w1.close();
-		/*System.out.println("File csv vali:");
-		FileReader ww = new FileReader(str2);
-		int c;
-		while((c = ww.read()) != -1) {
-			System.out.write((char) c );
-		}
-		ww.close();*/
 	}
 
 }
